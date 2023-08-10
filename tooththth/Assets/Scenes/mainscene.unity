@@ -866,6 +866,9 @@ MonoBehaviour:
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   endTxt: {fileID: 1059626716}
+  specialImage0: {fileID: 21300000, guid: 7374ef383615a4f43be4f72bbb1f1f00, type: 3}
+  specialImage1: {fileID: 21300000, guid: a6209d53435f39740967ce5f58174fac, type: 3}
+  specialImage2: {fileID: 21300000, guid: e2bf44bdfc2e49f4695ac7b8447e63e7, type: 3}
 --- !u!4 &1724477396
 Transform:
   m_ObjectHideFlags: 0
