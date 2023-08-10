@@ -65,8 +65,9 @@ public class gamemanager : MonoBehaviour
 
         if (firstCardImage == secondCardImage)
         {
-            
-            
+            firstCard.GetComponent<card>().destroyCard();
+            secondCard.GetComponent<card>().destroyCard();
+
             if (firstCardImage == "rtan0" )
             {
                 firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage0;
