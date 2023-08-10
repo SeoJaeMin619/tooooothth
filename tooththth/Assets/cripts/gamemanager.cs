@@ -10,6 +10,14 @@ public class gamemanager : MonoBehaviour
     public Text timeTxt;
     public GameObject card;
     float time = 0.0f;
+    public static gamemanager I;
+    public GameObject firstCard;
+    public GameObject secondCard;
+
+    void Awake()
+    {
+        I = this;
+    }
 
     void Start()
     {
@@ -37,5 +45,25 @@ public class gamemanager : MonoBehaviour
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
+    }
+
+    public void isMatched()
+    {
+        string firstCardImage = firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite.name;
+        string secondCardImage = secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite.name;
+
+        if (firstCardImage == secondCardImage)
+        {
+            firstCard.GetComponent<card>().destroyCard();
+            secondCard.GetComponent<card>().destroyCard();
+        }
+        else
+        {
+            firstCard.GetComponent<card>().closeCard();
+            secondCard.GetComponent<card>().closeCard();
+        }
+
+        firstCard = null;
+        secondCard = null;
     }
 }

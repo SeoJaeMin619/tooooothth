@@ -325,6 +325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeTxt: {fileID: 495570655}
   card: {fileID: 7670043866029255562, guid: 6e989dacdf63c174da8aa9cd648a1a27, type: 3}
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
 --- !u!4 &1724477396
 Transform:
   m_ObjectHideFlags: 0
