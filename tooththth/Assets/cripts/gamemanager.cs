@@ -13,6 +13,7 @@ public class gamemanager : MonoBehaviour
     public static gamemanager I;
     public GameObject firstCard;
     public GameObject secondCard;
+    public GameObject endTxt;
 
     void Awake()
     {
@@ -36,6 +37,8 @@ public class gamemanager : MonoBehaviour
 
             string rtanName = "rtan" + rtans[i].ToString();
             newCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(rtanName);
+
+            Time.timeScale = 1.0f;
         }
     }
 
@@ -56,6 +59,13 @@ public class gamemanager : MonoBehaviour
         {
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
+
+            int cardsLeft = GameObject.Find("cards").transform.childCount;
+            if (cardsLeft == 2)
+            {
+                endTxt.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
         }
         else
         {
@@ -65,5 +75,8 @@ public class gamemanager : MonoBehaviour
 
         firstCard = null;
         secondCard = null;
+
+
+
     }
 }
