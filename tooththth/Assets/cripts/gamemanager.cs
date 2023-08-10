@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-
+using UnityEditor.Experimental.GraphView;
+using UnityEditor.ShaderKeywordFilter;
+using Unity.VisualScripting;
 
 public class gamemanager : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class gamemanager : MonoBehaviour
     public GameObject firstCard;
     public GameObject secondCard;
     public GameObject endTxt;
+    public Sprite specialImage0;
+    public Sprite specialImage1;
+    public Sprite specialImage2;
 
     void Awake()
     {
@@ -38,6 +43,8 @@ public class gamemanager : MonoBehaviour
             string rtanName = "rtan" + rtans[i].ToString();
             newCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(rtanName);
 
+
+
             Time.timeScale = 1.0f;
         }
     }
@@ -57,8 +64,49 @@ public class gamemanager : MonoBehaviour
 
         if (firstCardImage == secondCardImage)
         {
-            firstCard.GetComponent<card>().destroyCard();
-            secondCard.GetComponent<card>().destroyCard();
+            
+            
+            if (firstCardImage == "rtan0" )
+            {
+                firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage0;
+                secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage0;
+            }
+            else if (firstCardImage == "rtan1")
+            {
+                firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage0;
+                secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage0;
+            }
+            else if (firstCardImage == "rtan2")
+            {
+                firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage1;
+                secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage1;
+            }
+            else if (firstCardImage == "rtan3")
+            {
+                firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage1;
+                secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage1;
+            }
+            else if (firstCardImage == "rtan4")
+            {
+                firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage1;
+                secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage1;
+            }
+            else if (firstCardImage == "rtan5")
+            {
+                firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage2;
+                secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage2;
+            }
+            else if (firstCardImage == "rtan6")
+            {
+                firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage2;
+                secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage2;
+            }
+            else if (firstCardImage == "rtan7")
+            {
+                firstCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage2;
+                secondCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = specialImage2;
+            }
+          
 
             int cardsLeft = GameObject.Find("cards").transform.childCount;
             if (cardsLeft == 2)
@@ -76,7 +124,7 @@ public class gamemanager : MonoBehaviour
         firstCard = null;
         secondCard = null;
 
-
+        
 
     }
 }
